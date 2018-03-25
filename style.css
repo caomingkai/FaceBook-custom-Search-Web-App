@@ -1,0 +1,115 @@
+
+.body-font{
+    font-size: 15px;
+}
+.input-group{
+    padding-right: 10% ;
+}
+.input-group-btn{
+    border-radius:0px;
+    padding-right: 50px;
+}
+
+.head-font {
+  border-radius: 0;
+  font-weight: 300;
+  font-size: 20px;
+
+}
+
+.btn-search{
+    border-radius:0;
+    width: 60%;
+    height: 34px;
+}
+
+.btn-clear{
+  border-radius:0;
+  width: 60%;
+}
+
+.nav {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 300;
+  border-bottom-style: solid;
+  border-bottom-color: #337ab5;
+}
+
+.nav li {
+  padding: 0px;
+}
+
+.nav-pills li + li {
+  margin: 0px;
+}
+
+.nav li a {
+  border-radius: 0px;
+  height: 50px;
+  padding: 15px;
+  text-decoration: none;
+  color: black;
+}
+
+.nav li a:hover {
+  background-color: white;
+}
+
+.progress{
+    margin:20% auto;
+    width:70%;
+}
+
+.facebook-icon {
+  padding: 0px;
+  float: right;
+  width: 40px;
+  height: 30px;
+}
+
+.facebook-icon img {
+  margin: 0px;
+  width: 20px;
+  height: 20px;
+}
+
+.view-animate-container{
+    padding-top: 10px;
+}
+
+.view-animate.ng-enter {
+  transition:all linear 0.5s;
+  display:block;
+  width:100%;
+  position:relative;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
+.view-animate.ng-enter {
+  left:-100%;
+}
+.view-animate.ng-enter.ng-enter-active {
+  left:0;
+}
+
+.view-animate-reverse.ng-enter {
+  transition:all linear 0.5s;
+  display:block;
+  width:100%;
+  position:relative;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
+.view-animate-reverse.ng-enter {
+  left:100%;
+}
+.view-animate-reverse.ng-enter.ng-enter-active {
+  left:0;
+}

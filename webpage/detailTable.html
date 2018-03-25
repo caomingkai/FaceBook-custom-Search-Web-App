@@ -1,0 +1,87 @@
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-xs-7">
+            <button ng-click="back()" type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-menu-left"></span>Back
+            </button>
+        </div>
+
+        <div class="col-xs-5" >
+            <button ng-click="detailFavor()" type="button" class="btn btn-default btn-sm">
+            <span ng-show= !dataResult.favorite.data[itemDetail.id] class="glyphicon glyphicon-star-empty"></span>
+            <span ng-show= dataResult.favorite.data[itemDetail.id]  class="glyphicon glyphicon-star" style="color:yellow"></span>
+            </button>
+
+            <button ng-click="post()" type="button" class="btn btn-default facebook-icon" width="18" height="18">
+                <img src="./webpage/facebook.png" alt="FB">
+            </button>
+        </div>
+    </div>
+
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Album</div>
+                <div class="panel-body">
+                    <div ng-show="showDetailBarOrNot.state" class="progress custom-progress" style="margin-top:20%;">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                        </div>
+                    </div>
+                    <div ng-show="!showDetailBarOrNot.state" class="panel-group" id="accordion" >
+                        <div class="alert alert-warning" ng-show="!itemDetail.albums" >No data found</div>
+                        <div ng-repeat="itemAlbum in itemDetail.albums.data" ng-show=" {{itemAlbum.photos.data}}"  class="panel panel-default" >
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="" data-target="#{{$index}}">{{itemAlbum.name}}</a>
+                                </h4>
+                            </div>
+                            <div id="{{$index}}" ng-class=" $index==0 ? 'panel-collapse collapse in' : 'panel-collapse collapse'">
+                                <div class="panel-body" ng-repeat = "subItem in itemAlbum.photos.data">
+                                    <img class="img-rounded img-responsive" ng-src="https://graph.facebook.com/v2.8/{{subItem.id}}/picture?access_token=EAAYfcoP7WDUBAP49wJZAgfysMH73JbFwy5XGHerUfoe01CmTio8RZCZCnF62svQa7AWP7rjPmiKnXueNSVV6jRZBfpZA6UhZAzt3mMn1zUYxnBTWdtV9ELy4s2NnvpmyIQ7FCI5xYQmLhGxMA4g2ZAEPu19TBKfADBnrCMGvxzpAQZDZD">
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-repeat="itemAlbum in ititemDetailem.albums.data" ng-show=" {{!itemAlbum.photos.data}}"  class="alert alert-warning " > No data found  </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Post</div>
+                <div class="panel-body">
+
+                    <div ng-show="showDetailBarOrNot.state" class="progress custom-progress" style="margin-top:20%;">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                        </div>
+                    </div>
+
+                    <div class="panel-group" ng-show="!showDetailBarOrNot.state">
+                        <div  class="alert alert-warning" ng-show="!itemDetail.posts" >No data found</div>
+                        <div ng-repeat = "itemPost in itemDetail.posts.data" ng-show="itemDetail.posts"  ng-show="itemPost.message" class="panel panel-default"  style="margin-bottom: 20px;">
+                            <div class="panel-body">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <img ng-src="{{itemDetail.picture.data.url}}" class="media-object" style="width:45px">
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">
+                                            {{itemDetail.name}}<br>
+                                            <small>{{itemPost.created_time | date:'yyyy-MM-dd HH:mm:ss'}}</small></h4>
+                                    </div>
+                                    <br>
+                                    <p>{{itemPost.message}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

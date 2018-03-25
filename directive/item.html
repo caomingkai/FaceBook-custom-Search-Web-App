@@ -1,0 +1,26 @@
+<tr>
+    <td>{{ $index + 1 }}</td>
+
+    <td>
+        <a ng-href="{{item.picture.data.url}}">
+            <img  class="img-circle" width="30px" height="30px" ng-src="{{item.picture.data.url}}"  >
+        </a>
+    </td>
+
+    <td>{{ item.name }}</td>
+    <td>
+        <a href="" data-target="#">
+            <button ng-click="favorHandle()" type="button" class="btn btn-default btn-sm">
+                <span ng-show= !dataResult.favorite.data[item.id] class="glyphicon glyphicon-star-empty"></span>
+                <span ng-show= dataResult.favorite.data[item.id]  class="glyphicon glyphicon-star" style="color:yellow"></span>
+            </button>
+        </a>
+    </td>
+    <td>
+        <a href=""  data-target="#">
+            <button ng-click="searchDetail()" type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-menu-right"></span>
+            </button>
+        </a>
+    </td>
+</tr>                                  

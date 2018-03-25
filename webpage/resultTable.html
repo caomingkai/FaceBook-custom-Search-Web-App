@@ -1,0 +1,45 @@
+<div class="tab-content" >
+    <div ng-show="searchType!='favorite'" id="{{searchType}}" class="tab-pane table-responsive active">
+        <table class="table table-hover">
+          <thead><tr><th>#</th><th>Portfolio</th><th>Name
+              </th><th>Favorite</th><th>Details</th></tr>
+          </thead>
+
+          <tbody>
+              <tr tr-items ng-repeat="item in dataResult[searchType].data">
+              </tr>
+          </tbody>
+        </table>
+        <ul class="pager">
+            <li><a href="" ng-show="dataResult[searchType].paging.previous!= undefined" ng-click="paging(dataResult[searchType].paging.previous, searchType)">Previous</a></li>
+            <li><a href="" ng-show="dataResult[searchType].paging.next!==undefined" ng-click="paging(dataResult[searchType].paging.next, searchType)">Next</a></li>
+        </ul>
+    </div>
+
+
+    <div id="{{searchType}}" class="tab-pane active table-responsive">
+        <table  ng-show="searchType =='favorite'" class="table table-hover">
+              <thead><tr><th>#</th><th>Portfolio</th><th>Name
+                  </th><th>Type</th><th>Favorite</th><th>Details</th></tr>
+              </thead>
+              <tbody>
+                <tr favor ng-repeat="item in dataResult[searchType].data">
+                </tr> 
+              </tbody>
+        </table>
+    </div>
+</div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+

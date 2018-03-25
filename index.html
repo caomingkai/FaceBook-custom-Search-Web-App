@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        
+        
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+        
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+        <script src="https://code.angularjs.org/1.4.8/angular-resource.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+        <script src="app.js"></script>
+        
+    </head>
+    <body ng-app="FBSearch" class="body-font" >
+        
+        <div ng-controller="mainCtrl" class="container-fluid " >
+            <div class="row  well">
+                <div class="col-sm-2" >
+                    <label  class="text-primary head-font"  for="searchAJAX">FB Search</label>
+                </div>
+                 
+                <div class="col-sm-10" >
+                    <form>
+                        <div class="input-group">
+                            <a href="./index.html">
+                                <input ng-model="keyword" type="text" id="searchAJAX" class="form-control" placeholder="type something..."  required="required">
+                            </a>
+                            <div class="input-group-btn">
+                                <button ng-click="searchAJAX()" type="submit" class="btn btn-primary btn-default btn-search" >
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                                <button ng-click="clear()" type="reset" class="btn btn-default btn-clear">
+                                    Clear
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+         
+
+            <div  class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ul class="nav nav-pills" >
+                            <li class="tab col-xs-12 col-sm-2 active" ng-click="getSearchType('user')"  class="active" >
+                                <a data-toggle="tab" href="" data-target="#users">Users</a></li>
+                            <li class="tab col-xs-12 col-sm-2" ng-click="getSearchType('page')" >
+                                <a data-toggle="tab" href="" data-target="#pages">Pages</a></li>
+                            <li class="tab col-xs-12 col-sm-2" ng-click="getSearchType('event')">
+                                <a data-toggle="tab" href="" data-target="#events">Events</a></li>
+                            <li class="tab col-xs-12 col-sm-2" ng-click="getSearchType('place')">
+                                <a data-toggle="tab" href="" data-target="#places">Places</a></li>
+                            <li class="tab col-xs-12 col-sm-2" ng-click="getSearchType('group')">
+                                <a data-toggle="tab" href="" data-target="#groups">Groups</a></li>
+                            <li class="tab col-xs-12 col-sm-2" ng-click="getSearchType('favorite')">
+                                <a data-toggle="tab" href="" data-target="#favorites">Favorites</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    
+                    <div ng-show="showBarOrNot" class="progress custom-progress" >
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                        </div>
+                    </div>
+                    <div class="view-animate-container col-sm-12 col-centered">
+                        <div ng-view class="{{main.animationSwap}}">
+                            <br>
+                        </div>  
+                        
+                    </div>
+                </div>  
+            </div>
+        
+        </div>
+    </body>
+</html>

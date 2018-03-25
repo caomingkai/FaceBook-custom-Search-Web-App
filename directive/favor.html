@@ -1,0 +1,23 @@
+<tr ng-if = "showOrNot" >
+    <td>{{ $index + 1 }}</td>
+    <td>
+        <a ng-href="{{item[0].picture.data.url}}">
+            <img ng-src="{{item[0].picture.data.url}}" height=30px width=40px >
+        </a>
+    </td>
+
+    <td>{{ item[0].name }}</td>
+    <td>{{ item[1] }}s</td>
+    <td>
+        <button ng-click="favorRemove()" type="button" class="btn btn-default btn-sm">
+            <span class="glyphicon glyphicon-trash" ></span>
+        </button>
+    </td>
+    <td>
+        <a href=""  data-target="#">
+            <button ng-click="searchDetail()" type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-menu-right"></span>
+            </button>
+        </a>
+    </td>
+</tr>
